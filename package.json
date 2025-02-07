@@ -32,8 +32,7 @@
     "fix:format": "prettier \"*.{js,json,md}\" \"src/**/*.{ts,tsx,md,mdx}\" --write",
     "build": "npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc --outDir dist/cjs",
-    "build:esm": "tsc --module esnext --outDir dist/esm",
-    "release": "npm run build && npm publish"
+    "build:esm": "tsc --module esnext --outDir dist/esm"
   },
   "author": "Morgan Barrett",
   "license": "MIT",
