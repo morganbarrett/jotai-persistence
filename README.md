@@ -2,6 +2,10 @@
 
 > :warning: **DRAFT**: Not intended for use yet
 
+## Install
+
+`npm install jotai-persistence`
+
 ## About
 
 - Exports everything from "jotai" and "jotai/utils".
