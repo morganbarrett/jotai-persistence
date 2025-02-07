@@ -10,7 +10,7 @@
 
 - Exports everything from "jotai" and "jotai/utils".
 - Modifies atom creation to tag atoms for use with `isAtom` and `atomReflect`.
-- Modifies `atomWithStorage` and `createJSONStorage` to support nested atoms, and also to throw an error if the data is not serializable.
+- Modifies `createJSONStorage` to support nested atoms, and also to throw an error if the data is not serializable.
 
 ## Example
 
