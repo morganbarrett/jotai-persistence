@@ -1,5 +1,7 @@
 import eslint from "@eslint/js";
+import vitest from "@vitest/eslint-plugin";
 import importPlugin from "eslint-plugin-import";
+import testingLibrary from "eslint-plugin-testing-library";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -58,6 +60,20 @@ export default tseslint.config(
       "@typescript-eslint/no-unused-vars": [
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+    },
+  },
+  {
+    files: ["**/*.test.{ts,tsx}"],
+    ...testingLibrary.configs["flat/react"],
+    ...vitest.configs.recommended,
+    rules: {
+      "import/extensions": ["error", "never"],
+      "@typescript-eslint/no-unused-vars": "off",
+      "vitest/expect-expect": "off",
+      "vitest/consistent-test-it": [
+        "error",
+        { fn: "it", withinDescribe: "it" },
       ],
     },
   },

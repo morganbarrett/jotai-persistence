@@ -1,14 +1,14 @@
 {
   "name": "jotai-persistence",
   "type": "commonjs",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/esm/index.js",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/esm/index.d.mts",
-        "default": "./dist/esm/index.mjs"
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
       },
       "default": {
         "types": "./dist/cjs/index.d.ts",
@@ -30,9 +30,11 @@
     "fix": "npm run fix:lint && npm run fix:format",
     "fix:lint": "eslint . --fix",
     "fix:format": "prettier \"*.{js,json,md}\" \"src/**/*.{ts,tsx,md,mdx}\" --write",
-    "build": "npm run build:cjs && npm run build:esm",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:docs",
     "build:cjs": "tsc --outDir dist/cjs",
-    "build:esm": "tsc --module esnext --outDir dist/esm"
+    "build:esm": "tsc --module esnext --outDir dist/esm",
+    "build:docs": "typedoc --out docs src --sort source-order",
+    "test": "vitest run"
   },
   "author": "Morgan Barrett",
   "license": "MIT",
@@ -41,15 +43,22 @@
     "url": "git+https://github.com:morganbarrett/jotai-persistence.git"
   },
   "dependencies": {
+    "extended-serializer": "^3.0.1",
     "jotai": "^2.11.3",
-    "safe-json-value": "^3.0.0"
+    "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "^3.0.5",
+    "@vitest/eslint-plugin": "^1.1.27",
+    "@vitest/ui": "^3.0.5",
     "eslint": "^9.19.0",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-testing-library": "^7.1.1",
     "prettier": "^3.4.2",
+    "typedoc": "^0.27.7",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.23.0"
+    "typescript-eslint": "^8.23.0",
+    "vitest": "^3.0.5"
   }
 }
