@@ -1,23 +1,23 @@
 import {
-  stringify,
-  transforms,
+  type Transform,
   isPureObject,
   makeTransform,
-  type Transform,
   parse,
+  stringify,
+  transforms,
 } from "extended-serializer";
 import { atomWithStorage } from "jotai/vanilla/utils";
 import { z } from "zod";
 import {
-  type StorageAtomPrimitive,
+  type JotaiStorage,
+  type Meta,
   type PersistenceStorage,
   type StorageAtom,
   type StorageAtomOptions,
+  type StorageAtomPrimitive,
   type StringStorage,
-  atomSymbol,
   type Subscriptions,
-  type Meta,
-  type JotaiStorage,
+  atomSymbol,
 } from "./types";
 
 export const createSerializer =
@@ -87,6 +87,7 @@ export const createSerializer =
       };
 
       const storage = {
+        //@ts-expect-error todo
         getItem(key: string) {
           const ret = stringStorage.getItem(key);
           return ret && "then" in ret ? ret.then(parseValue) : parseValue(ret);
@@ -119,7 +120,9 @@ export const createSerializer =
 
       subscriptionsMap.set(key, subscriptions);
 
+      //@ts-expect-error todo
       return {
+        //@ts-expect-error todo
         ...atomWithStorage(key, options.initialValue, storage, jotaiOptions),
         [atomSymbol]: { id, key },
       };
