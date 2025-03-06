@@ -1,7 +1,7 @@
 {
   "name": "jotai-persistence",
   "type": "commonjs",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "",
   "main": "dist/esm/index.js",
   "exports": {
