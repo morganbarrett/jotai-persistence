@@ -50,8 +50,11 @@ export type StorageAtomOptions<Type, Value extends Type> = {
 export type StorageAtom<Value, S> = Record<typeof atomSymbol, Meta> &
   WritableAtom<SS<S, Value>, [SetState<SS<S, Value>>], void>;
 
-export type SyncStorageAtom<Value> = StorageAtom<Value, any>;
-export type AsyncStorageAtom<Value> = StorageAtom<Value, Promise<any>>;
+export type SyncStorageAtom<Value> = StorageAtom<Value, string | null>;
+export type AsyncStorageAtom<Value> = StorageAtom<
+  Value,
+  Promise<string | null>
+>;
 
 export type StorageAtomPrimitive = TransformedPrimitive<StorageAtom<any, any>>;
 
