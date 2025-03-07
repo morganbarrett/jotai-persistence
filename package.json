@@ -1,7 +1,7 @@
 {
   "name": "jotai-persistence",
   "type": "commonjs",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "",
   "main": "dist/esm/index.js",
   "exports": {
@@ -43,7 +43,7 @@
     "url": "git+https://github.com:morganbarrett/jotai-persistence.git"
   },
   "dependencies": {
-    "extended-serializer": "^3.0.1",
+    "extended-serializer": "^3.0.2",
     "jotai": "^2.11.3",
     "zod": "^3.24.2"
   },
